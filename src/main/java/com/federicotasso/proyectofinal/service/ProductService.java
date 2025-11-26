@@ -35,20 +35,32 @@ public class ProductService {
 
   public ProductResponse getProductById(Long id) {
     Product product = productRepository.findById(id)
-        .orElseThrow(() -> new RuntimeException("Product not found with id: " + id));
+        .orElseThrow(() -> new RuntimeException("Producto con id %s no encontrado".formatted(id)));
     return productMapper.toResponse(product);
   }
 
   public ProductResponse updateProduct(Long id, ProductRequest request) {
-    return productRepository.findById(id).map(dbproduct -> {
-      dbproduct.setTitle(request.getTitle());
-      dbproduct.setPrice(request.getPrice());
-      dbproduct.setDescription(request.getDescription());
-      dbproduct.setCategory(request.getCategory());
-      dbproduct.setImage(request.getImage());
-      dbproduct.setStock(request.getStock());
+    return productRepository.findById(id).map(dbProduct -> {
+      if (request.getTitle() != null && !request.getTitle().isBlank()) {
+        dbProduct.setTitle(request.getTitle());
+      }
+      if (request.getPrice() != null) {
+        dbProduct.setPrice(request.getPrice());
+      }
+      if (request.getDescription() != null) {
+        dbProduct.setDescription(request.getDescription());
+      }
+      if (request.getCategory() != null && !request.getCategory().isBlank()) {
+        dbProduct.setCategory(request.getCategory());
+      }
+      if (request.getImage() != null) {
+        dbProduct.setImage(request.getImage());
+      }
+      if (request.getStock() != null) {
+        dbProduct.setStock(request.getStock());
+      }
 
-      Product updateProduct = productRepository.save(dbproduct);
+      Product updateProduct = productRepository.save(dbProduct);
       return productMapper.toResponse(updateProduct);
     }).orElseThrow(() -> new RuntimeException("Producto con id %s no encontrado".formatted(id)));
   }

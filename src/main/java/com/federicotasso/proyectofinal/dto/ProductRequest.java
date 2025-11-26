@@ -25,5 +25,6 @@ public class ProductRequest {
   private Integer stock;
 
   private String description;
+  
   private String image;
 }
