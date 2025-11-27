@@ -1,7 +1,8 @@
 package com.federicotasso.proyectofinal.service;
 
-import com.federicotasso.proyectofinal.dto.ProductRequest;
+import com.federicotasso.proyectofinal.dto.ProductCreateRequest;
 import com.federicotasso.proyectofinal.dto.ProductResponse;
+import com.federicotasso.proyectofinal.dto.ProductUpdateRequest;
 import com.federicotasso.proyectofinal.mapper.ProductMapper;
 import com.federicotasso.proyectofinal.model.Product;
 import com.federicotasso.proyectofinal.repository.ProductRepository;
@@ -21,7 +22,7 @@ public class ProductService {
     this.productMapper = productMapper;
   }
 
-  public ProductResponse createProduct(ProductRequest request) {
+  public ProductResponse createProduct(ProductCreateRequest request) {
     Product product = productMapper.toEntity(request);
     product.setCreatedAt(LocalDateTime.now());
     Product savedProduct = productRepository.save(product);
@@ -39,7 +40,7 @@ public class ProductService {
     return productMapper.toResponse(product);
   }
 
-  public ProductResponse updateProduct(Long id, ProductRequest request) {
+  public ProductResponse updateProduct(Long id, ProductUpdateRequest request) {
     return productRepository.findById(id).map(dbProduct -> {
       if (request.getTitle() != null && !request.getTitle().isBlank()) {
         dbProduct.setTitle(request.getTitle());

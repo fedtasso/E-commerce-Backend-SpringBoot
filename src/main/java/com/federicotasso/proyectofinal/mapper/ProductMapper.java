@@ -1,6 +1,6 @@
 package com.federicotasso.proyectofinal.mapper;
 
-import com.federicotasso.proyectofinal.dto.ProductRequest;
+import com.federicotasso.proyectofinal.dto.ProductCreateRequest;
 import com.federicotasso.proyectofinal.dto.ProductResponse;
 import com.federicotasso.proyectofinal.model.Product;
 import org.springframework.stereotype.Component;
@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class ProductMapper {
 
-  public Product toEntity(ProductRequest request) {
+  public Product toEntity(ProductCreateRequest request) {
     Product product = new Product();
     product.setTitle(request.getTitle());
     product.setPrice(request.getPrice());

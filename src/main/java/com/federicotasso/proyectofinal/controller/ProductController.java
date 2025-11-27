@@ -1,7 +1,8 @@
 package com.federicotasso.proyectofinal.controller;
 
-import com.federicotasso.proyectofinal.dto.ProductRequest;
+import com.federicotasso.proyectofinal.dto.ProductCreateRequest;
 import com.federicotasso.proyectofinal.dto.ProductResponse;
+import com.federicotasso.proyectofinal.dto.ProductUpdateRequest;
 import com.federicotasso.proyectofinal.mapper.ProductMapper;
 import com.federicotasso.proyectofinal.service.ProductService;
 import jakarta.validation.Valid;
@@ -28,7 +29,7 @@ public class ProductController {
   }
 
   @PostMapping
-  public ProductResponse createProduct(@Valid @RequestBody ProductRequest request) {
+  public ProductResponse createProduct(@Valid @RequestBody ProductCreateRequest request) {
     return productService.createProduct(request);
   }
 
@@ -44,7 +45,7 @@ public class ProductController {
 
   @PutMapping("/{id}")
   public ProductResponse updateProduct(@PathVariable Long id,
-      @Valid @RequestBody ProductRequest request) {
+      @Valid @RequestBody ProductUpdateRequest request) {
     return productService.updateProduct(id, request);
   }
 
