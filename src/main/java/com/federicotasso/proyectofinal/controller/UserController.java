@@ -1,9 +1,9 @@
 package com.federicotasso.proyectofinal.controller;
 
-import com.federicotasso.proyectofinal.dto.UserCreateRequest;
-import com.federicotasso.proyectofinal.dto.UserPasswordUpdateRequest;
-import com.federicotasso.proyectofinal.dto.UserResponse;
-import com.federicotasso.proyectofinal.dto.UserUpdateRequest;
+import com.federicotasso.proyectofinal.dto.user.UserCreateRequest;
+import com.federicotasso.proyectofinal.dto.user.UserPasswordUpdateRequest;
+import com.federicotasso.proyectofinal.dto.user.UserResponse;
+import com.federicotasso.proyectofinal.dto.user.UserUpdateRequest;
 import com.federicotasso.proyectofinal.service.UserService;
 import jakarta.validation.Valid;
 import java.util.List;

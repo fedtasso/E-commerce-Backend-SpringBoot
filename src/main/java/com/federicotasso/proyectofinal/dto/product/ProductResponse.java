@@ -1,4 +1,4 @@
-package com.federicotasso.proyectofinal.dto;
+package com.federicotasso.proyectofinal.dto.product;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;

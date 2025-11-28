@@ -1,4 +1,4 @@
-package com.federicotasso.proyectofinal.dto;
+package com.federicotasso.proyectofinal.dto.user;
 
 import com.federicotasso.proyectofinal.model.UserRole;
 import java.time.LocalDateTime;

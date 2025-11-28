@@ -1,9 +1,9 @@
 package com.federicotasso.proyectofinal.service;
 
-import com.federicotasso.proyectofinal.dto.UserCreateRequest;
-import com.federicotasso.proyectofinal.dto.UserPasswordUpdateRequest;
-import com.federicotasso.proyectofinal.dto.UserResponse;
-import com.federicotasso.proyectofinal.dto.UserUpdateRequest;
+import com.federicotasso.proyectofinal.dto.user.UserCreateRequest;
+import com.federicotasso.proyectofinal.dto.user.UserPasswordUpdateRequest;
+import com.federicotasso.proyectofinal.dto.user.UserResponse;
+import com.federicotasso.proyectofinal.dto.user.UserUpdateRequest;
 import com.federicotasso.proyectofinal.mapper.UserMapper;
 import com.federicotasso.proyectofinal.model.User;
 import com.federicotasso.proyectofinal.repository.UserRepository;

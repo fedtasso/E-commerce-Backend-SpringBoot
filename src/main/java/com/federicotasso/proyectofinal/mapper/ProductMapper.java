@@ -1,7 +1,7 @@
 package com.federicotasso.proyectofinal.mapper;
 
-import com.federicotasso.proyectofinal.dto.ProductCreateRequest;
-import com.federicotasso.proyectofinal.dto.ProductResponse;
+import com.federicotasso.proyectofinal.dto.product.ProductCreateRequest;
+import com.federicotasso.proyectofinal.dto.product.ProductResponse;
 import com.federicotasso.proyectofinal.model.Product;
 import org.springframework.stereotype.Component;
 

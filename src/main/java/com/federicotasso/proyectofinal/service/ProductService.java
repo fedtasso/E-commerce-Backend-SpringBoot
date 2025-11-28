@@ -1,8 +1,8 @@
 package com.federicotasso.proyectofinal.service;
 
-import com.federicotasso.proyectofinal.dto.ProductCreateRequest;
-import com.federicotasso.proyectofinal.dto.ProductResponse;
-import com.federicotasso.proyectofinal.dto.ProductUpdateRequest;
+import com.federicotasso.proyectofinal.dto.product.ProductCreateRequest;
+import com.federicotasso.proyectofinal.dto.product.ProductResponse;
+import com.federicotasso.proyectofinal.dto.product.ProductUpdateRequest;
 import com.federicotasso.proyectofinal.mapper.ProductMapper;
 import com.federicotasso.proyectofinal.model.Product;
 import com.federicotasso.proyectofinal.repository.ProductRepository;

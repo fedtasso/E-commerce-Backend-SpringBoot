@@ -1,4 +1,4 @@
-package com.federicotasso.proyectofinal.dto;
+package com.federicotasso.proyectofinal.dto.user;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;

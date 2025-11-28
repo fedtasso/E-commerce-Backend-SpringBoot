@@ -1,8 +1,8 @@
 package com.federicotasso.proyectofinal.controller;
 
-import com.federicotasso.proyectofinal.dto.ProductCreateRequest;
-import com.federicotasso.proyectofinal.dto.ProductResponse;
-import com.federicotasso.proyectofinal.dto.ProductUpdateRequest;
+import com.federicotasso.proyectofinal.dto.product.ProductCreateRequest;
+import com.federicotasso.proyectofinal.dto.product.ProductResponse;
+import com.federicotasso.proyectofinal.dto.product.ProductUpdateRequest;
 import com.federicotasso.proyectofinal.mapper.ProductMapper;
 import com.federicotasso.proyectofinal.service.ProductService;
 import jakarta.validation.Valid;
