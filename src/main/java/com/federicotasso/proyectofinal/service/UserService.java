@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class UserService {
@@ -26,6 +27,7 @@ public class UserService {
     this.passwordEncoder = passwordEncoder;
   }
 
+  @Transactional
   public UserResponse createUser(UserCreateRequest request) {
     if (userRepository.existsByEmail(request.getEmail())) {
       throw new RuntimeException("El email ya se encuentra registrado");
@@ -36,11 +38,13 @@ public class UserService {
     return userMapper.toResponse(savedUser);
   }
 
+  @Transactional(readOnly = true)
   public List<UserResponse> getAllUsers() {
     List<User> users = userRepository.findAll();
     return users.stream().map(userMapper::toResponse).collect(Collectors.toList());
   }
 
+  @Transactional(readOnly = true)
   public UserResponse getUserByEmail(String email) {
     User user = userRepository.findByEmail(email).orElseThrow(()
         -> new RuntimeException("El email %s no fue encontrado".formatted(email))
@@ -48,6 +52,7 @@ public class UserService {
     return userMapper.toResponse(user);
   }
 
+  @Transactional(readOnly = true)
   public UserResponse getUserById(Long id) {
     User user = userRepository.findById(id).orElseThrow(()
         -> new RuntimeException("El id numero %s no fue encontrado".formatted(id))
@@ -55,6 +60,7 @@ public class UserService {
     return userMapper.toResponse(user);
   }
 
+  @Transactional
   public UserResponse updateUser(Long id, UserUpdateRequest request) {
     return userRepository.findById(id).map(dbUser -> {
 
@@ -80,6 +86,7 @@ public class UserService {
     }).orElseThrow(() -> new RuntimeException("El id numero %s no fue encontrado".formatted(id)));
   }
 
+  @Transactional
   public void deleteUser(Long id) {
     if (!userRepository.existsById(id)) {
       throw new RuntimeException("Usuario con id %s no encontrado".formatted(id));
@@ -87,6 +94,7 @@ public class UserService {
     userRepository.deleteById(id);
   }
 
+  @Transactional
   public void updatePassword(Long id, UserPasswordUpdateRequest request) {
     User user = userRepository.findById(id)
         .orElseThrow(() -> new RuntimeException("Usuario no encontrado"));

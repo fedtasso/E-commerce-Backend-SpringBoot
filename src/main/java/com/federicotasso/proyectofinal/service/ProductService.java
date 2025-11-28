@@ -10,6 +10,7 @@ import java.time.LocalDateTime;
 import java.util.List;
 import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ProductService {
@@ -22,6 +23,7 @@ public class ProductService {
     this.productMapper = productMapper;
   }
 
+  @Transactional
   public ProductResponse createProduct(ProductCreateRequest request) {
     Product product = productMapper.toEntity(request);
     product.setCreatedAt(LocalDateTime.now());
@@ -29,17 +31,20 @@ public class ProductService {
     return productMapper.toResponse(savedProduct);
   }
 
+  @Transactional(readOnly = true)
   public List<ProductResponse> getAllProducts() {
     List<Product> products = productRepository.findAll();
     return products.stream().map(productMapper::toResponse).collect(Collectors.toList());
   }
 
+  @Transactional(readOnly = true)
   public ProductResponse getProductById(Long id) {
     Product product = productRepository.findById(id)
         .orElseThrow(() -> new RuntimeException("Producto con id %s no encontrado".formatted(id)));
     return productMapper.toResponse(product);
   }
 
+  @Transactional
   public ProductResponse updateProduct(Long id, ProductUpdateRequest request) {
     return productRepository.findById(id).map(dbProduct -> {
       if (request.getTitle() != null && !request.getTitle().isBlank()) {
@@ -66,6 +71,7 @@ public class ProductService {
     }).orElseThrow(() -> new RuntimeException("Producto con id %s no encontrado".formatted(id)));
   }
 
+  @Transactional
   public void deleteProduct(Long id) {
     if (!productRepository.existsById(id)) {
       throw new RuntimeException("Producto con id %s no encontrado".formatted(id));
