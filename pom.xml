@@ -10,9 +10,9 @@
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
   <groupId>com.federicotasso</groupId>
-  <artifactId>proyectofinal</artifactId>
+  <artifactId>ecommerce</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>proyectofinal</name>
+  <name>ecommerce</name>
   <description>Project for TalentoTech</description>
   <url/>
   <licenses>
@@ -32,6 +32,7 @@
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <org.mapstruct.version>1.5.5.Final</org.mapstruct.version>
   </properties>
   <dependencies>
     <dependency>
@@ -83,10 +84,23 @@
           <source>21</source>
           <target>21</target>
           <annotationProcessorPaths>
+            <!-- Lombok -->
             <path>
               <groupId>org.projectlombok</groupId>
               <artifactId>lombok</artifactId>
               <version>1.18.30</version>
+            </path>
+            <!-- MapStruct Processor -->
+            <path>
+              <groupId>org.mapstruct</groupId>
+              <artifactId>mapstruct-processor</artifactId>
+              <version>1.5.5.Final</version>
+            </path>
+            <!-- Binding para Lombok + MapStruct -->
+            <path>
+              <groupId>org.projectlombok</groupId>
+              <artifactId>lombok-mapstruct-binding</artifactId>
+              <version>0.2.0</version>
             </path>
           </annotationProcessorPaths>
         </configuration>
