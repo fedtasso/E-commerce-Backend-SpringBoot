@@ -1,0 +1,7 @@
+services:
+  - type: web
+    name: ecommerce-backend
+    env: docker
+    plan: free
+    buildCommand: "./mvnw clean compile"
+    startCommand: "java -jar target/*.jar"
