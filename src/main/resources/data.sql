@@ -7,7 +7,7 @@ INSERT INTO users (name, email, password, role, phone, avatar, active, created_a
 (
   'Cliente Demo',
   'cliente@demo.com',
-  '$2a$10$7VzLqB.5NpQN2qY6w8kZLuGfKJ9hM1rX2sT3uV4w5x6y7z8A9b0C1d2E3f4G5h6I',
+  '$2a$10$2Z5FQ4NvLb8e7wR9xYzABCDEfGhIjKlMnOpQrStUvWXyZaBcDeFgH',
   'CUSTOMER',
   '+541100000001',
   'customer.jpg',
@@ -17,7 +17,7 @@ INSERT INTO users (name, email, password, role, phone, avatar, active, created_a
 (
   'Administrador Sistema',
   'admin@demo.com',
-  '$2a$10$7VzLqB.5NpQN2qY6w8kZLuGfKJ9hM1rX2sT3uV4w5x6y7z8A9b0C1d2E3f4G5h6I',
+  '$2a$10$2Z5FQ4NvLb8e7wR9xYzABCDEfGhIjKlMnOpQrStUvWXyZaBcDeFgH',
   'ADMIN',
   '+541100000002',
   'admin.jpg',
