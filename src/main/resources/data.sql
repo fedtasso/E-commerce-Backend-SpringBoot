@@ -34,16 +34,16 @@ INSERT INTO products (title, price, description, category, image, stock, created
   149990.00,
   'Aspiradora robot con navegacion inteligente, mapeo de habitaciones, control por app',
   'Electrodomesticos',
-  'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&w=600&q=80', -- Aspiradora robot
+  'https://plus.unsplash.com/premium_photo-1729006559482-d289e4385b1e?q=80&w=1112&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   12,
   CURRENT_TIMESTAMP
 ),
 (
-  'Tostadora 4 Ranuras Digital',
+  'Tostadora 2 Ranuras',
   45990.00,
-  'Tostadora 4 ranuras con control digital, 7 niveles de tostado, funcion descongelar',
+  'Tostadora 2 ranuras, 7 niveles de tostado, funcion descongelar',
   'Electrodomesticos',
-  'https://images.unsplash.com/photo-1572442388796-11668a67e53d?auto=format&fit=crop&w=600&q=80', -- Tostadora
+  'https://plus.unsplash.com/premium_photo-1667238579781-cb4bd6126ffd?q=80&w=711&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   25,
   CURRENT_TIMESTAMP
 ),
@@ -52,7 +52,7 @@ INSERT INTO products (title, price, description, category, image, stock, created
   89990.00,
   'Cafetera automatica para cafe espresso y capuccino, sistema de espuma de leche',
   'Electrodomesticos',
-  'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=600&q=80', -- Cafetera
+  'https://images.unsplash.com/photo-1637029436347-e33bf98a5412?q=80&w=880&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   18,
   CURRENT_TIMESTAMP
 ),
@@ -61,7 +61,7 @@ INSERT INTO products (title, price, description, category, image, stock, created
   34990.00,
   'Plancha a vapor 2400W, suela de ceramica, sistema anti-calc, chorro de vapor vertical',
   'Electrodomesticos',
-  'https://images.unsplash.com/photo-1581235720864-1d5e12c9c0a4?auto=format&fit=crop&w=600&q=80', -- Plancha
+  'https://images.unsplash.com/photo-1662221156544-3355c817ed74?q=80&w=1074&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   30,
   CURRENT_TIMESTAMP
 );
@@ -75,7 +75,7 @@ INSERT INTO products (title, price, description, category, image, stock, created
   29990.00,
   'Pelota de futbol tamano 5, material PU resistente, valvula de latex, peso oficial',
   'Deportes',
-  'https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=600&q=80', -- Pelota futbol
+  'https://images.unsplash.com/photo-1660926655800-3d11219f390d?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   40,
   CURRENT_TIMESTAMP
 ),
@@ -84,16 +84,16 @@ INSERT INTO products (title, price, description, category, image, stock, created
   24990.00,
   'Pelota de baloncesto tamano 7, material de cuero composite, buen grip en todas las condiciones',
   'Deportes',
-  'https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=600&q=80', -- Pelota basket
+  'https://images.unsplash.com/photo-1650566924908-db62de4863af?q=80&w=1071&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   35,
   CURRENT_TIMESTAMP
 ),
 (
-  'Set de Pesas Ajustables 20kg',
+  'Pesa de 20kg',
   89990.00,
-  'Set de 2 pesas ajustables de 1 a 10kg cada una, sistema de cambio rapido, agarre ergonomico',
+  'Set de 2 pesas de 20 kg cada una, agarre ergonomico',
   'Deportes',
-  'https://images.unsplash.com/photo-1534367507877-0edd93bd013b?auto=format&fit=crop&w=600&q=80', -- Pesas
+  'https://images.unsplash.com/photo-1725289767222-3444016c70ce?q=80&w=1228&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   20,
   CURRENT_TIMESTAMP
 ),
@@ -102,7 +102,7 @@ INSERT INTO products (title, price, description, category, image, stock, created
   129990.00,
   'Raqueta de padel carbono 3K, forma redonda, balance medio, incluye funda y overgrip',
   'Deportes',
-  'https://images.unsplash.com/photo-1595435934247-5d33b7f92c70?auto=format&fit=crop&w=600&q=80', -- Raqueta padel
+  'https://images.unsplash.com/photo-1728034262202-0c3badbc3fcb?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   15,
   CURRENT_TIMESTAMP
 );
@@ -116,7 +116,7 @@ INSERT INTO products (title, price, description, category, image, stock, created
   15990.00,
   'Alfombra para entrada 60x90cm, material poliester, diseño moderno, antideslizante',
   'Hogar',
-  'https://images.unsplash.com/photo-1556228578-9c360e1d8d34?auto=format&fit=crop&w=600&q=80', -- Alfombra
+  'https://images.unsplash.com/photo-1660997598847-bdad1ad226c7?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   50,
   CURRENT_TIMESTAMP
 ),
@@ -125,7 +125,7 @@ INSERT INTO products (title, price, description, category, image, stock, created
   12990.00,
   'Jarra de agua 2.5L con filtro purificador, elimina cloro e impurezas, material BPA free',
   'Hogar',
-  'https://images.unsplash.com/photo-1558617999-3c4034e1af17?auto=format&fit=crop&w=600&q=80', -- Jarra agua
+  'https://images.unsplash.com/photo-1743187360373-513ac4a7266f?q=80&w=792&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   28,
   CURRENT_TIMESTAMP
 ),
@@ -134,16 +134,16 @@ INSERT INTO products (title, price, description, category, image, stock, created
   34990.00,
   'Juego de sabanas 1.5 plazas, algodon 200 hilos, incluye sabana bajera y 2 fundas',
   'Hogar',
-  'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=600&q=80', -- Sabanas
+  'https://images.unsplash.com/photo-1663247135608-594dd5e69b32?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   42,
   CURRENT_TIMESTAMP
 ),
 (
-  'Florero de Vidrio Moderno',
+  'Florero de Porcelana Moderno',
   8990.00,
-  'Florero de vidrio transparente 25cm, diseño moderno minimalista, ideal para rosas o decoracion',
+  'Florero de porcelana, diseño moderno minimalista, ideal para rosas o decoracion',
   'Hogar',
-  'https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?auto=format&fit=crop&w=600&q=80', -- Florero
+  'https://plus.unsplash.com/premium_photo-1677178629911-fe334bfd4ade?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
   60,
   CURRENT_TIMESTAMP
 );
