@@ -1,12 +1,15 @@
 package com.federicotasso.ecommerce.controller;
 
 import com.federicotasso.ecommerce.dto.user.UserCreateRequest;
+import com.federicotasso.ecommerce.dto.user.UserLoginRequest;
 import com.federicotasso.ecommerce.dto.user.UserPasswordUpdateRequest;
 import com.federicotasso.ecommerce.dto.user.UserResponse;
 import com.federicotasso.ecommerce.dto.user.UserUpdateRequest;
+import com.federicotasso.ecommerce.model.User;
 import com.federicotasso.ecommerce.service.UserService;
 import jakarta.validation.Valid;
 import java.util.List;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +37,20 @@ public class UserController {
     return userService.createUser(request);
   }
 
+  @PostMapping("/login")
+  public ResponseEntity<UserResponse> login(@RequestBody UserLoginRequest request) {
+    UserResponse response = userService.login(
+        request.getEmail(),
+        request.getPassword()
+    );
+    return ResponseEntity.ok(response);
+  }
+
+  @GetMapping("/search")
+  public UserResponse getUserByEmail(@RequestParam String email) {
+    return userService.getUserByEmail(email);
+  }
+
   @GetMapping
   public List<UserResponse> getAllUsers() {
     return userService.getAllUsers();
@@ -42,11 +59,6 @@ public class UserController {
   @GetMapping("/{id}")
   public UserResponse getUserById(@PathVariable Long id) {
     return userService.getUserById(id);
-  }
-
-  @GetMapping("/search")
-  public UserResponse getUserByEmail(@RequestParam String email) {
-    return userService.getUserByEmail(email);
   }
 
   @PutMapping("/{id}")
@@ -67,4 +79,5 @@ public class UserController {
     userService.deleteUser(id);
     return ResponseEntity.noContent().build();
   }
+
 }

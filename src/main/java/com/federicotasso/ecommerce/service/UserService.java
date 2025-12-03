@@ -107,4 +107,12 @@ public class UserService {
     userRepository.save(user);
   }
 
+  @Transactional(readOnly = true)
+  public UserResponse login(String email, String password) {
+    User user = userRepository.findByEmail(email)
+        .filter(u -> passwordEncoder.matches(password, u.getPassword()))
+        .orElseThrow(() -> new RuntimeException("Credenciales incorrectas"));
+
+    return userMapper.toResponse(user);
+  }
 }
