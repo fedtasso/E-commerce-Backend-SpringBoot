@@ -1,5 +1,6 @@
 package com.federicotasso.ecommerce.dto.user;
 
+import com.federicotasso.ecommerce.constants.ValidationConstants;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -16,15 +17,15 @@ public class UserCreateRequest {
   private String email;
 
   @NotBlank(message = "La contraseña es obligatorio")
-  @Pattern(regexp = "^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{6,}$",
-      message = "La contraseña debe tener al menos 6 caracteres, 1 número, 1 mayúscula y 1 minúscula"
+  @Pattern(regexp = ValidationConstants.PASSWORD_REGEX,
+      message = ValidationConstants.PASSWORD_MESSAGE
   )
   private String password;
 
   private String avatar;
 
   @Pattern(
-      regexp = "^[+]?[(]?\\d{1,4}[)]?[-.\\s]*\\d{1,4}[-.\\s]*\\d{1,4}[-.\\s]*\\d{1,9}$",
+      regexp = ValidationConstants.PHONE_REGEX,
       message = "Formato de teléfono inválido"
   )
   private String phone;
