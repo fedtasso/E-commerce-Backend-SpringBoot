@@ -32,7 +32,7 @@ public class User {
 
   @Enumerated(EnumType.STRING)
   @Column(nullable = false)
-  private UserRole role = UserRole.CUSTOMER;
+  private UserRole role = UserRole.ADMIN; // TODO TEMPORAL: En producción esto debe ser UserRole.CUSTOMER por defecto.
 
   private String phone;
 
