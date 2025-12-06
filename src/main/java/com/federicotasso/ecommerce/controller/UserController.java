@@ -34,6 +34,7 @@ public class UserController {
 
   @PostMapping("/register")
   public UserResponse createUser(@Valid @RequestBody UserCreateRequest request) {
+
     return userService.createUser(request);
   }
 
