@@ -4,7 +4,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
-
+//TODO revisar toda esta configuración
 @Configuration
 public class CorsConfig {
 
@@ -16,6 +16,7 @@ public class CorsConfig {
         registry.addMapping("/api/**")  // Aplica a TODAS las rutas /api
             .allowedOrigins(
                 "http://localhost:5173",    // Vite dev server
+                "http://localhost:4173",    // Vite preview
                 "http://localhost:3000",    // React dev server
                 "https://fedtasso-ecommerce.netlify.app"
             )

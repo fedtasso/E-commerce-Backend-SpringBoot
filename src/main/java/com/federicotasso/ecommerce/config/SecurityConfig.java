@@ -7,7 +7,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-
+//TODO revisar toda esta configuracion y ver producción vs desarrollo
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -23,7 +23,10 @@ public class SecurityConfig {
     http
         .csrf(csrf -> csrf.disable())
         .authorizeHttpRequests(auth -> auth
+            .requestMatchers("/h2-console/**").permitAll() //TODO esto deberia ser solo en desarrol
             .anyRequest().permitAll()
+        ).headers(headers -> headers
+            .frameOptions(frame -> frame.sameOrigin())
         );
     return http.build();
   }

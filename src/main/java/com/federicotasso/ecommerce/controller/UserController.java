@@ -8,9 +8,12 @@ import com.federicotasso.ecommerce.dto.user.UserUpdateRequest;
 import com.federicotasso.ecommerce.model.User;
 import com.federicotasso.ecommerce.service.UserService;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotBlank;
 import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -22,6 +25,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+@Validated
 @RestController
 @RequestMapping("/api/users")
 public class UserController {
@@ -39,7 +43,7 @@ public class UserController {
   }
 
   @PostMapping("/login")
-  public ResponseEntity<UserResponse> login(@RequestBody UserLoginRequest request) {
+  public ResponseEntity<UserResponse> login(@Valid @RequestBody UserLoginRequest request) {
     UserResponse response = userService.login(
         request.getEmail(),
         request.getPassword()
@@ -47,8 +51,10 @@ public class UserController {
     return ResponseEntity.ok(response);
   }
 
+//  TODO logout
+
   @GetMapping("/search")
-  public UserResponse getUserByEmail(@RequestParam String email) {
+  public UserResponse getUserByEmail(@RequestParam @NotBlank @Email String email) {
     return userService.getUserByEmail(email);
   }
 
