@@ -4,6 +4,7 @@ import com.federicotasso.ecommerce.dto.user.UserCreateRequest;
 import com.federicotasso.ecommerce.dto.user.UserPasswordUpdateRequest;
 import com.federicotasso.ecommerce.dto.user.UserResponse;
 import com.federicotasso.ecommerce.dto.user.UserUpdateRequest;
+import com.federicotasso.ecommerce.exception.business.InvalidCredentialsException;
 import com.federicotasso.ecommerce.mapper.UserMapper;
 import com.federicotasso.ecommerce.model.User;
 import com.federicotasso.ecommerce.repository.UserRepository;
@@ -111,7 +112,7 @@ public class UserService {
   public UserResponse login(String email, String password) {
     User user = userRepository.findByEmail(email)
         .filter(u -> passwordEncoder.matches(password, u.getPassword()))
-        .orElseThrow(() -> new RuntimeException("Credenciales incorrectas"));
+        .orElseThrow(InvalidCredentialsException::new);
 
     return userMapper.toResponse(user);
   }
