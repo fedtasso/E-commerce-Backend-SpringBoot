@@ -7,6 +7,7 @@ import java.util.Map;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.orm.ObjectOptimisticLockingFailureException;
 import org.springframework.web.HttpRequestMethodNotSupportedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.MissingServletRequestParameterException;
@@ -137,6 +138,19 @@ public class GlobalExceptionHandler {
     );
   }
 
+  //TODO revisar
+//  @ExceptionHandler(ObjectOptimisticLockingFailureException.class)
+//  public ResponseEntity<Map<String, Object>> handleOptimisticLock(
+//      ObjectOptimisticLockingFailureException ex) {
+//
+//    return ResponseEntity.status(HttpStatus.CONFLICT)
+//        .body(Map.of(
+//            "status", 409,
+//            "error", "El recurso fue modificado por otro proceso. Intente nuevamente."
+//        ));
+//  }
+//}
+
 
   // Utility methods to standardize the JSON response format
   private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String message) {
@@ -149,6 +163,7 @@ public class GlobalExceptionHandler {
 
     return ResponseEntity.status(status).body(body);
   }
+
 
   private ResponseEntity<Map<String, Object>> buildResponse(HttpStatus status, String message, Object details) {
 

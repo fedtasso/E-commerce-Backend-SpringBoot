@@ -50,4 +50,8 @@ public class User {
   protected void onCreate() {
     createdAt = LocalDateTime.now();
   }
+
+  // TODO revisar
+  //  @Version
+  //  private Long version;
 }

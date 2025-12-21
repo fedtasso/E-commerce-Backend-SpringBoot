@@ -4,6 +4,7 @@ import com.federicotasso.ecommerce.exception.business.BusinessException;
 import com.federicotasso.ecommerce.exception.business.EmailAlreadyExistsException;
 import com.federicotasso.ecommerce.exception.business.InvalidCredentialsException;
 import com.federicotasso.ecommerce.exception.business.OperationNotAllowedException;
+import com.federicotasso.ecommerce.exception.business.SamePasswordException;
 import com.federicotasso.ecommerce.exception.business.UserNotFoundException;
 import java.util.Map;
 import org.springframework.http.HttpStatus;
@@ -33,6 +34,12 @@ public class BusinessExceptionHandler {
   public ResponseEntity<Map<String, Object>> handleOperationNotAllowed(OperationNotAllowedException ex) {
     return buildResponse(HttpStatus.FORBIDDEN, ex.getMessage());
   }
+
+  @ExceptionHandler(SamePasswordException.class)
+  public ResponseEntity<Map<String, Object>> handlePasswordMismatch(SamePasswordException ex) {
+    return buildResponse(HttpStatus.BAD_REQUEST, ex.getMessage());
+  }
+
 
   // Para excepciones de negocio no mapeadas explícitamente
   @ExceptionHandler(BusinessException.class)

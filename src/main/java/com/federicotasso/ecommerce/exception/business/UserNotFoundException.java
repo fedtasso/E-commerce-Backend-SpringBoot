@@ -3,10 +3,10 @@ package com.federicotasso.ecommerce.exception.business;
   public class UserNotFoundException extends BusinessException {
 
   public UserNotFoundException(Long userId) {
-    super("Usuario no encontrado con id: " + userId);
+    super("El id numero %s no fue encontrado".formatted(userId));
   }
 
   public UserNotFoundException(String email) {
-    super("Usuario no encontrado con email: " + email);
+    super("El email %s no fue encontrado".formatted(email));
   }
 }
