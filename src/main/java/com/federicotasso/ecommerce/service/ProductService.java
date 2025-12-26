@@ -3,6 +3,7 @@ package com.federicotasso.ecommerce.service;
 import com.federicotasso.ecommerce.dto.product.ProductCreateRequest;
 import com.federicotasso.ecommerce.dto.product.ProductResponse;
 import com.federicotasso.ecommerce.dto.product.ProductUpdateRequest;
+import com.federicotasso.ecommerce.exception.business.ProductNotFoundException;
 import com.federicotasso.ecommerce.mapper.ProductMapper;
 import com.federicotasso.ecommerce.model.Product;
 import com.federicotasso.ecommerce.repository.ProductRepository;
@@ -40,7 +41,7 @@ public class ProductService {
   @Transactional(readOnly = true)
   public ProductResponse getProductById(Long id) {
     Product product = productRepository.findById(id)
-        .orElseThrow(() -> new RuntimeException("Producto con id %s no encontrado".formatted(id)));
+        .orElseThrow(() -> new ProductNotFoundException(id));
     return productMapper.toResponse(product);
   }
 
@@ -68,13 +69,13 @@ public class ProductService {
 
       Product updateProduct = productRepository.save(dbProduct);
       return productMapper.toResponse(updateProduct);
-    }).orElseThrow(() -> new RuntimeException("Producto con id %s no encontrado".formatted(id)));
+    }).orElseThrow(() -> new ProductNotFoundException(id));
   }
 
   @Transactional
   public void deleteProduct(Long id) {
     if (!productRepository.existsById(id)) {
-      throw new RuntimeException("Producto con id %s no encontrado".formatted(id));
+      throw new ProductNotFoundException(id);
     }
     productRepository.deleteById(id);
   }

@@ -2,6 +2,10 @@ package com.federicotasso.ecommerce.service;
 
 import com.federicotasso.ecommerce.dto.cart.AddToCartRequest;
 import com.federicotasso.ecommerce.dto.cart.CartResponse;
+import com.federicotasso.ecommerce.exception.business.ActiveCartNotFoundException;
+import com.federicotasso.ecommerce.exception.business.ProductNotFoundException;
+import com.federicotasso.ecommerce.exception.business.ProductNotInCartException;
+import com.federicotasso.ecommerce.exception.business.UserNotFoundException;
 import com.federicotasso.ecommerce.mapper.CartMapper;
 import com.federicotasso.ecommerce.model.Cart;
 import com.federicotasso.ecommerce.model.CartItem;
@@ -31,7 +35,7 @@ public class CartServiceImpl implements CartService {
   public CartResponse getCartByUserId(Long userId) {
     Cart cart = cartRepository.findByUserIdWithItems(userId)
         .orElseThrow(() ->
-            new RuntimeException("Carrito no encontrado para el usuerio %s".formatted(userId)));
+            new ActiveCartNotFoundException(userId));
     return cartMapper.toResponse(cart);
   }
 
@@ -85,7 +89,7 @@ public class CartServiceImpl implements CartService {
     Cart cart = getCartByUserIdOrThrow(userId);
 
     CartItem cartItem = cartItemRepository.findByCartAndProduct(cart, product)
-        .orElseThrow(() -> new RuntimeException("El producto no está en el carrito"));
+        .orElseThrow(() -> new ProductNotInCartException(productId));
 
     cartItemRepository.delete(cartItem);
 
@@ -115,19 +119,18 @@ public class CartServiceImpl implements CartService {
   private User getUserOrThrow(Long userId) {
     return userRepository.findById(userId)
         .orElseThrow(
-            () -> new RuntimeException("Usuario con id %s no encontrado".formatted(userId)));
+            () -> new UserNotFoundException(userId));
   }
 
   private Product getProductOrThrow(Long productId) {
     return productRepository.findById(productId)
-        .orElseThrow(() -> new RuntimeException(
-            "Producto con id %s no encontrado".formatted(productId)));
+        .orElseThrow(() -> new ProductNotFoundException(productId));
   }
 
   private Cart getCartByUserIdOrThrow(Long userId) {
     return cartRepository.findByUserId(userId)
         .orElseThrow(
-            () -> new RuntimeException("Carrito no encontrado para el usuario: " + userId));
+            () -> new ActiveCartNotFoundException(userId));
   }
 
   private Cart getOrCreateCart(User user) {
